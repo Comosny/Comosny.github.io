@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jhovanny Sánchez - Amplificando la Frecuencia Humana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #006666;
+      --gold: #FFD700;
+      --blue: #007BFF;
+      --gray-light: #f0f0f0;
+      --gray-medium: #cfcfcf;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container general */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      color: var(--white);
+    }
+
+    .hero-content {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: var(--gold);
+      color: #222;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #e6c200;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Sección acerca de mí */
+    .about {
+      padding: 60px 0;
+      background-color: var(--gray-light);
+    }
+
+    .about h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: var(--teal);
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* Servicios */
+    .services {
+      padding: 60px 0;
+    }
+
+    .services h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: var(--teal);
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      flex: 1 1 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: var(--blue);
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .card li::before {
+      content: "•";
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Testimonios */
+    .testimonials {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: var(--teal);
+    }
+
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .testimonial {
+      background-color: #f9f9f9;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .testimonial h4 {
+      text-align: right;
+      font-weight: normal;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Contacto */
+    .contact {
+      padding: 60px 0;
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: var(--teal);
+    }
+
+    .contact p {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+    }
+
+    button[type="submit"] {
+      background-color: var(--blue);
+      color: #fff;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info a {
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    /* Redes sociales */
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: var(--gray-medium);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--blue);
+    }
+
+    /* Pie de página */
+    footer {
+      padding: 20px 0;
+      text-align: center;
+      background-color: #f0f0f0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content {
+        padding: 0;
+      }
+
+      .hero-image {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-content">
+      <h1>Jhovanny Sánchez: Amplificando la Frecuencia Humana para Eliminar la Fricción Operativa</h1>
+      <p>Diseñando sistemas donde las personas resuenan y los procesos fluyen, liberando tu potencial estratégico como CEO.</p>
+      <button class="cta-button" onclick="window.location='#contacto'">Conversemos (WhatsApp)</button>
+    </div>
+    <div class="hero-image">
+      <!-- Imagen profesional o visual abstracto -->
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jhovanny Sánchez" />
+    </div>
+  </section>
+
+  <!-- Acerca de mí -->
+  <section class="about">
+    <div class="container">
+      <h2>Mi Enfoque: Claridad Brutal para Resultados sin Fricción</h2>
+      <p>
+        Con más de dos décadas en gestión administrativa y logística, he desarrollado una metodología única para identificar puntos de fricción y transformarlos en flujos de trabajo optimizados.
+        Soy Jhovanny Sánchez, tu Chief Clarity & Staff Growth Partner, y mi propósito es amplificar la frecuencia humana de tu equipo, diseñando sistemas donde la estructura respira, las personas resuenan y la fricción desaparece.
+      </p>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="services">
+    <div class="container">
+      <h2>Asistencia Virtual Ejecutiva: Claridad para tu Estrategia</h2>
+      <div class="service-cards">
+        <div class="card">
+          <h3>Optimización de Procesos</h3>
+          <ul>
+            <li>Revisión y mejora de flujos de trabajo</li>
+            <li>Automatización de tareas repetitivas</li>
+            <li>Implementación de herramientas digitales</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Gestión de Proyectos Estratégicos</h3>
+          <ul>
+            <li>Planificación y seguimiento</li>
+            <li>Coordinar recursos y prioridades</li>
+            <li>Entrega de resultados alineados</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Soporte Administrativo Proactivo</h3>
+          <ul>
+            <li>Gestión de agendas y comunicaciones</li>
+            <li>Coordinar equipos y tareas</li>
+            <li>Respuesta rápida y eficiente</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Marketing Digital y Automatización</h3>
+          <ul>
+            <li>Estrategias de contenido</li>
+            <li>Campañas automatizadas</li>
+            <li>Optimización de presencia online</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Ampliación de Frecuencia Humana</h3>
+          <ul>
+            <li>Capacitación y coaching</li>
+            <li>Optimización de talento</li>
+            <li>Cultivo de ambientes resonantes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Historias de Claridad y Éxito</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial">
+          <p>"Gracias a Jhovanny, logramos eliminar fricciones internas y aumentar nuestra productividad en un 30%. Su enfoque en claridad y flujo ha transformado nuestra operación."</p>
+          <h4>- Líder en Sector Financiero</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Su metodología nos permitió entender mejor nuestro equipo y procesos, mejorando la comunicación y el rendimiento en tiempos record."</p>
+          <h4>- CEO en Sector Servicios</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="contact">
+    <div class="container">
+      <h2>¿Listo para una Operación sin Fricción?</h2>
+      <p>Conversemos sin compromiso. Cuéntame tu desafío y diseñaremos la solución perfecta para amplificar tu frecuencia.</p>
+      <form class="contact-form" action="#" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="email" name="email" placeholder="Correo" required />
+        <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div class="contact-info">
+        <a href="https://wa.me/573006218071" target="_blank">Escríbeme por WhatsApp</a>
+        <p>Email: <a href="mailto:comosnythf@gmail.com">comosnythf@gmail.com</a></p>
+        <p>Teléfono: <a href="tel:+573006218071">+57 300-621-80-71</a></p>
+      </div>
+      <div class="social-icons">
+        <a href="#" title="LinkedIn" target="_blank">🔗</a>
+        <a href="#" title="Instagram" target="_blank">📸</a>
+        <a href="#" title="Facebook" target="_blank">📘</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>Copyright © <span id="year"></span> Jhovanny Sánchez / COMOSNY. Todos los derechos reservados.</p>
+    <p>
+      <a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
