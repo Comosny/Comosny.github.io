@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consola Operativa COMOSNY - The Human Frequency</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* Configuración de Tailwind CSS con colores personalizados de COMOSNY */
+        :root {
+            --color-primary: #0F172A; /* Azul oscuro/casi negro */
+            --color-secondary: #D4AF37; /* Dorado/Mostaza */
+            --color-tertiary: #F5F5F0; /* Blanco roto */
+            --color-accent-blue: #00FFFF; /* Azul Neón/Cian para la interfaz */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-primary); /* Fondo oscuro para la "nave" */
+            color: var(--color-tertiary); /* Texto por defecto en blanco roto */
+            overflow-x: hidden; /* Evitar scroll horizontal */
+        }
+
+        /* Estilos personalizados para los paneles con efecto neón */
+        .neon-panel {
+            background-color: rgba(15, 23, 42, 0.7); /* Primary con transparencia */
+            border: 1px solid rgba(0, 255, 255, 0.3); /* Borde cian sutil */
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 5px rgba(0, 255, 255, 0.2) inset; /* Resplandor neón */
+            backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
+            transition: all 0.3s ease; /* Transición suave para hover */
+        }
+
+        .neon-panel:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.4) inset;
+        }
+
+        .animated-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear forwards infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        /* Animación para el título principal */
+        .console-title-animation {
+            animation: typewriter 4s steps(44) forwards, blinkTextCursor 0.75s infinite;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid var(--color-accent-blue);
+            width: 0; /* Empieza con ancho 0 */
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blinkTextCursor {
+            from { border-right-color: var(--color-accent-blue); }
+            to { border-right-color: transparent; }
+        }
+
+        /* Animación de entrada para los paneles */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full z-0 opacity-10" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 L 0 10" fill="none" stroke="rgba(0,255,255,0.1)" stroke-width="0.2"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(0,255,255,0.1)" stroke-width="0.5"/>
+            <line x1="10" y1="10" x2="90" y2="90" stroke="rgba(0,255,255,0.1)" stroke-width="0.3" class="animated-line"/>
+            <line x1="90" y1="10" x2="10" y2="90" stroke="rgba(0,255,255,0.1)" stroke-width="0.3" class="animated-line" style="animation-delay: 0.5s;"/>
+        </svg>
+
+        <div class="container mx-auto max-w-6xl relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 console-title-animation" style="color: var(--color-accent-blue);">ADELANTE, NAVE COMOSNY. REPORTE.</h1>
+            <p class="text-lg md:text-xl text-white/70 mb-12 fade-in-up" style="animation-delay: 4.5s;">STATE OF OPERATIVE CLARITY, ARCHITECTURE AND SYSTEMS, AND THE CODEX.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+
+                <div class="neon-panel p-8 rounded-lg text-left fade-in-up">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-lightbulb-flash-line text-4xl mr-4" style="color: var(--color-accent-blue);"></i> <h3 class="text-2xl font-semibold text-white">CLARITY SCAN: Claridad Brutal</h3>
+                    </div>
+                    <p class="text-white/80">Tu ecosistema operativo bajo escaneo. Identificamos el lodo que frena tu frecuencia. Si algo vibra fuera del sistema... será revelado.</p>
+                </div>
+
+                <div class="neon-panel p-8 rounded-lg text-left fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-git-branch-line text-4xl mr-4" style="color: var(--color-accent-blue);"></i> <h3 class="text-2xl font-semibold text-white">NODE SYNC: Sistemas Modulares y Sin Fricción</h3>
+                    </div>
+                    <p class="text-white/80">Sincronizamos tus nodos humanos y tecnológicos. Diseñamos estructuras que permiten el flujo y eliminan la fricción operativa.</p>
+                </div>
+
+                <div class="neon-panel p-8 rounded-lg text-left fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-wave-line text-4xl mr-4" style="color: var(--color-accent-blue);"></i> <h3 class="text-2xl font-semibold text-white">FREQUENCY MONITOR: Amplificación de Frecuencia Humana</h3>
+                    </div>
+                    <p class="text-white/80">Monitoreamos y potenciamos el ritmo natural de tu equipo. Tus decisiones serán respaldadas por la claridad.</p>
+                </div>
+
+                <div class="neon-panel p-8 rounded-lg text-left fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-book-2-line text-4xl mr-4" style="color: var(--color-accent-blue);"></i> <h3 class="text-2xl font-semibold text-white">THE CODEX: Tu Arquitectura Operativa Viva</h3>
+                    </div>
+                    <p class="text-white/80">Acceso a la información esencial. El conocimiento y la estrategia condensados para que escales con propósito.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Script para la animación de entrada de los paneles
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // El elemento es visible en un 10%
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+</body>
+</html>
